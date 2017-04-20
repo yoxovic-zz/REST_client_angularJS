@@ -1,0 +1,138 @@
+<!doctype html>
+<html ng-app="RestApp">
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+
+<meta charset="utf-8">
+<title>REST Klijent aplikacija</title>
+
+</head>
+
+<body>
+
+    <div class="container" ng-controller="RestCtrl" ng-init="ucitajListuAutomobila()">
+    
+        <div class="naslovi">
+        	<h1>Klijent strana REST mrežnih servisa</h1>
+        	<h2>Demonstracija Java (JAX-RS 2.0) i PHP (CodeIgniter 3.0.6) RESTful web servisa</h2>
+        </div>
+        
+        <div class="tekst-forma">      	
+            <p>Primenjeni obrasci (forme) klijent aplikacije AngularJS, navedeni ovim redosledom, namenjeni su za unos, čitanje i izmenu podataka o automobilu. Ove funkcionanosti AngularJS klijenta se ostvaruju iniciranjem zahteva (HTTP request) prema Java i PHP REST WEB servisima, kroz upotrebu apsolutnih putanja URI adrese i odgovarajuće HTTP metode. Dok se, kao krajnji ishod tih poziva ka REST WEB servisima od strane klijenta, u MySQL bazi podataka "rest_db", smeštenoj na strani servera, beleži novo stanje podataka ili se vrši zamena postojećih.</p>
+        </div>
+        
+      <div class="sacuvaj-forma">
+            <table>
+                <tr>
+                    <td class="pozadina">Marka</td>
+                    <td><input type="text" placeholder="Nova marka" ng-model="marka"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina">Model</td>
+                    <td><input type="text" placeholder="Novi model" ng-model="model"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina">Godište</td>
+                    <td><input type="text" placeholder="Novo godište" ng-model="godiste"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina">Kubikaža</td>
+                    <td><input type="text" placeholder="Nova kubikaža" ng-model="kubikaza"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina">Boja</td>
+                    <td><input type="text" placeholder="Nova boja" ng-model="boja"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina">Cena</td>
+                    <td><input type="text" placeholder="Nova cena" ng-model="cena"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina"></td>
+                    <td><button class="standard-sacuvaj" ng-click="sacuvajAuto()">Sačuvaj</button></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="uredi-prikazi-forma">
+            
+            <table>
+            	<tr>
+                    <td class="pozadina">ID</td>
+                    <td><input type="text" placeholder="Postojeći ID auta" ng-model="auto_id_info"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina"></td>
+                    <td><button class="standard-ucitaj" ng-click="ucitajAuto()">Učitaj</button></td>
+                </tr>
+            </table>
+            
+            <table>
+            	<tr>
+                    <td class="pozadina">ID</td>
+                    <td><input type="text" placeholder="Postojeći ID auta" ng-model="auto_id"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina">Marka</td>
+                    <td><input type="text" placeholder="Nova marka" ng-model="novaMarka"></td>
+                </tr>
+                <tr>
+                    <td class="pozadina"></td>
+                    <td><button class="standard-izmeni" ng-click="izmeniAuto()">Izmeni</button></td>
+                </tr>
+            </table>
+            
+        </div>
+        
+        <div class="podaci-auta">
+
+            <ul>
+                <li>ID &nbsp; {{ auto.auto_id }}</li>
+                <li>Marka &nbsp; {{ auto.marka }}</li>
+                <li>Model &nbsp; {{ auto.model }}</li>
+                <li>Godište &nbsp; {{ auto.godiste }}</li>
+                <li>Kubikaža &nbsp; {{ auto.kubikaza }}</li>
+                <li>Boja &nbsp; {{ auto.boja }}</li>
+                <li>Cena &nbsp; {{ auto.cena }}</li>
+            </ul>      		
+            
+        </div>
+        
+        <div class="lista-automobila">
+       	  <p>Tabela podataka sa listom automobila, dobijena je iz MySQL baze podataka "rest_db", kao rezultat parsiranog sadržaja tela poruke, mapiranog u JSON formatu od strane REST WEB servisa.</p>
+            
+            <table>
+                <thead class="pozadina">
+                    <tr>
+                        <th>R. br.</th>
+                        <th>ID</th>
+                        <th>Marka</th>
+                        <th>Model</th>
+                        <th>Godište</th>
+                        <th>Kubikaža</th>
+                        <th>Boja</th>
+                        <th>Cena</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="auto in listaAutomobila">
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ auto.auto_id }}</td>
+                        <td>{{ auto.marka}}</td>
+                        <td>{{ auto.model }}</td>
+                        <td>{{ auto.godiste }}</td>
+                        <td>{{ auto.kubikaza }}</td>
+                        <td>{{ auto.boja }}</td>
+                        <td>{{ auto.cena }}</td>
+                        <td><button class="danger" ng-click="izbrisiAuto($index)">Izbriši</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>       
+    </div>
+</body>
+</html>

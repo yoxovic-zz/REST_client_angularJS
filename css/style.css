@@ -1,0 +1,137 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+* { box-sizing: border-box; }
+
+p, h1, h2, ul, th, td  {
+	font-family:"Arial", sans-serif;
+	font-style: normal;
+}
+
+p  { font-size: 14px; line-height: 1.5; letter-spacing: 0.4px; }
+
+h1 { font-size: 28px; line-height: 1.5; letter-spacing: 0.3px; }
+
+h2 { font-size: 22px; line-height: 0.5; letter-spacing: 0.3px; }
+
+ul { 
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	display: block;
+	width: 100%;
+	padding: 10px 0 10px 5px;
+	list-style: none;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+	color: #008CBA;
+	letter-spacing: 0.2px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+	font-size: 14px;
+	text-align: left;
+	margin-bottom: 25px;
+}
+
+th, td {
+	padding: 2px;
+}
+
+th { height: 45px; }
+
+.lista-automobila td {
+	color: #008CBA;
+	font-size: 14px;
+	letter-spacing: 0.2px;
+}
+
+td.pozadina, .lista-automobila th, .lista-automobila td {
+	padding-left: 10px
+}
+
+td.pozadina, thead.pozadina tr th { 
+	background-color: #F2F2F2;
+	font-weight: bold;
+}
+
+.lista-automobila { 
+	width: 100%;
+	padding-top: 25px;
+	margin-bottom: 50px;
+}
+
+.container { 
+	width: 1200px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.naslovi { 
+	margin-bottom: 40px;  
+	border-bottom: 5px solid #008CBA; 
+}
+
+.tekst-forma p, .lista-automobila p { padding-bottom: 15px; } 
+
+.sacuvaj-forma, .uredi-prikazi-forma, .lista-automobila, .podaci-auta { 
+	float: left;
+}
+
+.sacuvaj-forma, .uredi-prikazi-forma, .podaci-auta { 
+	min-width: 30%;
+}
+
+.sacuvaj-forma, .uredi-prikazi-forma { 
+	margin-right: 3.333%;
+}
+
+input { 
+	padding: 8px; 
+	border: 1px solid #ddd; 
+	color: #006F93; 
+	font-size: 12px;
+	letter-spacing: 0.2px;
+}
+
+button, input {
+	width: 100%;
+}
+
+button {
+	padding: 10px;
+	border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+	text-transform: uppercase;
+	background-color: #008CBA;
+
+}
+
+button:hover {
+	background-color: #21C8FF;
+}
+
+button.standard-sacuvaj, button.standard-izmeni, button.standard-ucitaj {
+	margin: 2px 0;
+}
+
+button.danger {
+	background-color: #F44336;
+	padding: 5px;
+}
+
+button.danger:hover {
+	background-color: #F7827A;
+}
